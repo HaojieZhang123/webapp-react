@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 
 import MovieCard from '../components/MovieCard'
 
@@ -51,13 +52,16 @@ const initialMovies = [
 ]
 
 const Homepage = () => {
+
+    const [movies, setMovies] = useState(initialMovies)
+
     return (
         <>
             <h2>Movie List</h2>
 
             <div className="container">
                 <div className="row">
-                    {initialMovies.map((movie) => (
+                    {movies.map((movie) => (
 
                         <MovieCard movie={movie} key={movie.id} />
 
