@@ -180,15 +180,25 @@ const MovieDetail = () => {
 
     return (
         <>
-            <h2>MovieDetail</h2>
 
             <div className="container">
-                <div className="row">
+                <div className="row my-3">
+                    <div className="col-12">
+                        <h2>MovieDetail</h2>
+                    </div>
+                </div>
+                <div className="row mb-4">
                     <div className="col-12 col-md-6 col-lg-4">
-                        <img src={movie.image} alt={movie.title} />
+                        <img
+                            // src={movie.image}
+                            // placeholder
+                            src="https://picsum.photos/500/300"
+                            alt={movie.title}
+                            className='img-fluid'
+                        />
                     </div>
                     <div className="col-12 col-md-6 col-lg-8">
-                        <h3>{movie.title}</h3>
+                        <h3 className='mb-3'>{movie.title}</h3>
                         <p>Director: {movie.director}</p>
                         <p>Genre: {movie.genre}</p>
                         <p>Release Year: {movie.release_year}</p>
@@ -198,10 +208,11 @@ const MovieDetail = () => {
                 </div>
 
                 <div className="row">
+                    <div className="col-12 mb-3">
+                        <h3>Reviews</h3>
+                    </div>
                     {reviews.map(review => (
-
                         <ReviewCard review={review} key={review.id} />
-
                         // <div className="col-12 col-md-6 col-lg-4" key={element.id}>
                         //     <h4>{element.name}</h4>
                         //     <p>Vote: {element.vote}</p>

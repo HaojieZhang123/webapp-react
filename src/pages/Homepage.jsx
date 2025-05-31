@@ -57,10 +57,9 @@ const Homepage = () => {
 
     return (
         <>
-            <h2>Movie List</h2>
-
-            <div className="container">
-                <div className="row">
+            <div className="container my3">
+                <h2 className='my-3'>Movie List</h2>
+                <div className="row gy-4">
                     {movies.map((movie) => (
 
                         <MovieCard movie={movie} key={movie.id} />
