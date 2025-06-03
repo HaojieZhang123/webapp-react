@@ -1,6 +1,6 @@
 import React from 'react'
-import { useState } from 'react'
-
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import MovieCard from '../components/MovieCard'
 
 const initialMovies = [
@@ -53,7 +53,22 @@ const initialMovies = [
 
 const Homepage = () => {
 
-    const [movies, setMovies] = useState(initialMovies)
+    const [movies, setMovies] = useState([])
+
+    const fecthMovies = () => {
+        axios
+            .get('http://localhost:3000/api/movies')
+            .then((response) => {
+                setMovies(response.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    useEffect(() => {
+        fecthMovies()
+    }, [])
 
     return (
         <>
