@@ -7,9 +7,7 @@ const MovieCard = ({ movie }) => {
             <div className="col-4">
                 <div className="card">
                     <img
-                        // src={movie.image}
-                        // placeholder
-                        src="https://picsum.photos/500/300"
+                        src={movie.image}
                         className="card-img-top"
                         alt={movie.title}
                     />
