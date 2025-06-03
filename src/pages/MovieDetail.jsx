@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 import ReviewCard from '../components/ReviewCard'
+import StarsRating from '../components/StarsRating'
 
 // const initialMovies = [
 //     {
@@ -218,10 +219,15 @@ const MovieDetail = () => {
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col-12 mb-3">
+                <div className="row mb-3">
+                    <div className="col-6">
                         <h3>Reviews</h3>
                     </div>
+                    <div className="col-6 text-end">
+                        <StarsRating vote={movie.vote} />
+                    </div>
+                </div>
+                <div className="row">
                     {reviews.map(review => (
                         <ReviewCard review={review} key={review.id} />
                         // <div className="col-12 col-md-6 col-lg-4" key={element.id}>
