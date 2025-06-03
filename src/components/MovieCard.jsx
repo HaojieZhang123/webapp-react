@@ -5,7 +5,7 @@ const MovieCard = ({ movie }) => {
     return (
         <>
             <div className="col-4">
-                <div className="card">
+                <div className="card movie-card">
                     <img
                         src={movie.image}
                         className="card-img-top"
