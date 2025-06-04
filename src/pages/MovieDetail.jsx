@@ -5,6 +5,7 @@ import axios from 'axios'
 
 import ReviewCard from '../components/ReviewCard'
 import StarsRating from '../components/StarsRating'
+import ReviewForm from '../components/ReviewForm'
 
 // const initialMovies = [
 //     {
@@ -169,7 +170,7 @@ const MovieDetail = () => {
 
     const [reviews, setReviews] = useState([])
 
-    const fecthMovie = () => {
+    const fetchMovie = () => {
         axios
             .get(`http://localhost:3000/api/movies/${id}`)
             .then((response) => {
@@ -188,7 +189,7 @@ const MovieDetail = () => {
     // }
 
     useEffect(() => {
-        fecthMovie()
+        fetchMovie()
     }, [])
 
 
@@ -236,6 +237,11 @@ const MovieDetail = () => {
                         //     <p>{element.text}</p>
                         // </div>
                     ))}
+                </div>
+                <div className="row">
+                    <div className="col-12">
+                        <ReviewForm movie_id={movie.id} updateReviews={() => { fetchMovie() }} />
+                    </div>
                 </div>
             </div>
         </>
