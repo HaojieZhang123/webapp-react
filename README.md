@@ -64,3 +64,23 @@ All’invio del form, la nuova recensione viene salvata sul database e visualizz
 
 
 Buon Lavoro e buon divertimento!
+
+# esercizio di oggi: Book Reviews
+**repo**: `webapp-react`
+
+## Esercizio
+Concludiamo migliorando l’esperienza sulla nostra SPA, inserendo un loader.
+creiamo un componente loader
+
+Questo componente deve poter apparire su qualunque pagina della nostra app.
+
+Creiamo e sfruttiamo un Context per dare la possibilità ad ogni componente di attivare o disattivare il loader sulla propria pagina
+
+## BONUS (scegliete voi quale fare, non siete obbligati a farli tutti, potete farne solo alcuni):
+1. Personalizziamo l’aspetto della nostra app col CSS
+2. Aggiungere il filtraggio dei film nella homepage
+3. Aggiungere la validazione della form delle recensioni mostrando un messaggio d'errore generico quando i dati inseriti non sono validi
+4. Validazione dei campi della form singola: quando un utente sbaglia ad inserire un valore di un campo o non lo inserisce viene mostrato l'errore inerente quel campo
+
+
+Buon Lavoro e buon divertimento!

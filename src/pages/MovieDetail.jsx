@@ -7,6 +7,9 @@ import ReviewCard from '../components/ReviewCard'
 import StarsRating from '../components/StarsRating'
 import ReviewForm from '../components/ReviewForm'
 
+import GlobalContext from '../context/globalContext'
+import { useContext } from 'react'
+
 // const initialMovies = [
 //     {
 //         id: 1,
@@ -165,17 +168,23 @@ const MovieDetail = () => {
 
     const { id } = useParams()
 
+    const { isLoading, setIsLoading } = useContext(GlobalContext)
+
     // const [movies, setMovies] = useState(initialMovies)
     const [movie, setMovie] = useState({})
 
     const [reviews, setReviews] = useState([])
 
     const fetchMovie = () => {
+        // is loading is true before fetching
+        setIsLoading(true)
         axios
             .get(`http://localhost:3000/api/movies/${id}`)
             .then((response) => {
                 setMovie(response.data)
                 setReviews(response.data.reviews)
+                // is loading is false after fetching
+                setIsLoading(false)
             })
             .catch((error) => {
                 console.log(error)

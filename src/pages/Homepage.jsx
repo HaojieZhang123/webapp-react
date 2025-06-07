@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import MovieCard from '../components/MovieCard'
 
+import Loader from '../components/Loader'
+import GlobalContext from '../context/globalContext'
+import { useContext } from 'react'
+
 // const initialMovies = [
 //     {
 //         id: 1,
@@ -54,12 +58,17 @@ import MovieCard from '../components/MovieCard'
 const Homepage = () => {
 
     const [movies, setMovies] = useState([])
+    const { isLoading, setIsLoading } = useContext(GlobalContext)
 
     const fecthMovies = () => {
+        // is loading is true before fetching
+        setIsLoading(true)
         axios
             .get('http://localhost:3000/api/movies')
             .then((response) => {
                 setMovies(response.data)
+                // is loading is false after fetching
+                setIsLoading(false)
             })
             .catch((error) => {
                 console.log(error)
@@ -72,6 +81,7 @@ const Homepage = () => {
 
     return (
         <>
+            {/* <Loader /> */}
             <div className="container my3">
                 <h2 className='my-3'>Movie List</h2>
                 <div className="row gy-4">
